@@ -7,6 +7,6 @@ Proyek ini dibuat oleh <a href="https://www.instagram.com/ruell.07/">ROSARIO SAM
 
 DATABASE MY SQL bisa di import dari file wastra.sql di github ini.
 
-UNTUK DEFAULT USERNAME / PW untuk testing database.
-Dummy01 / 12345678
+UNTUK DEFAULT USERNAME / PW untuk testing database: <br><br>
+Dummy01 / 12345678 <br>
 admin / ahihihi
