@@ -1,4 +1,4 @@
-SEPUTAR WASTRA NUSANTARA.
+<h1>SEPUTAR WASTRA NUSANTARA</h1>
 
 Proyek ini dibuat dalam rangka lomba web design KBOF tahun 2026, dan Puji Tuhan mendapatkan juara 3. Website ini dibangun menggunakan berbagai bahasa pemrograman, seperti HTML dan CSS, PHP dan JS. Dalam pengembangannya, kami menggunakan MYSQL dan Google Spreadsheet sebagai sumber database kami.
 
