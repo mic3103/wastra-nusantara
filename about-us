@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wastra Nusantara | Tentang Kami</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="./asset/favicon.ico" type="image/x-icon">
+</head>
+<script src="script.js" defer></script>
+<script>
+    window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+    });
+</script>
+
+<body>
+  <nav>
+        <img src="./asset/Wastra Logo.png" alt="" class="logo">
+
+        <ul class="nav-links" id="navLinks">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="about-us">Tentang Kami</a></li>
+        <li><a href="produk">Produk</a></li>
+        <li><a href="index.php#gallery">Galeri</a></li>
+        <li class="mobile-login"><a id="mobileLoginText" href="./loginsignup">Login</a></li>
+        
+        
+        </ul>
+
+        
+        </a>
+        <a href="./loginsignup" class="login-desktop">
+        
+        <div class="login-btn">
+          <h5 id="loginText">Login</h5>
+          <img src="./asset/default-avatar-icon-of-social-media-user-vector.jpg" 
+            alt="User" 
+            id="userAvatar" 
+            class="logo" 
+            style="cursor:pointer; width:40px; height:40px; border-radius:50%; display:none;">
+
+        </div>
+
+        </a>
+
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+    </nav>
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      hamburger.classList.toggle("active");
+    });
+  </script>
+
+
+  <header>
+    <div class="left-hd">
+      <h1>Tentang Wastra</h1>
+      <dl>Wastra Nusantara merayakan keindahan tekstil Indonesia—dari motif klasik hingga karya kontemporer. Kami menghadirkan setiap helai kain sebagai rekaman budaya dan identitas bangsa, memastikan warisan tradisi tetap hidup dan relevan dalam gaya hidup modern.</dl>
+    </div>
+    <div class="right-hd">
+      <img src="./asset/Wastra Logo.png" alt="">
+    </div>
+  </header>
+
+  <div id="gallery">
+    <h2>VISI KAMI</h2>
+    <div class="garisku"></div>
+    <p style="font-size: 30px;">"Menjadi ekosistem utama yang menghidupkan kembali kejayaan wastra Indonesia sebagai identitas gaya hidup modern yang berkelanjutan dan mendunia."</p>
+  </div>
+
+  <div id="product">
+    <h2>MISI KAMI</h2>
+    <div class="garisku"></div>
+
+    <div class="product-container">
+      <div class="product-card">
+        <img src="./asset/btk_tulis.png" alt="">
+        <h3>Melestarikan Tradisi Melalui Inovasi</h3>
+        <p>Menjaga kemurnian filosofi motif tradisional sambil mendorong kreativitas kontemporer agar wastra tetap relevan di setiap generasi.</p>
+      </div>
+      <div class="product-card">
+        <img src="./asset/UMKM.png" alt="">
+        <h3>Memberdayakan UMKM Lokal</h3>
+        <p>Menjadi jembatan bagi para perajin dan pelaku UMKM wastra di seluruh pelosok negeri untuk memperluas jangkauan pasar dan meningkatkan taraf ekonomi mereka.</p>
+      </div>
+      <div class="product-card">
+        <img src="./asset/bendera_indonesia.png"alt="">
+        <h3>Membangun Kebanggaan Nasional</h3>
+        <p>Mengedukasi masyarakat tentang nilai budaya, ketelatenan, dan sejarah di balik setiap helai kain, sehingga tumbuh rasa bangga saat mengenakan karya anak bangsa.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="sponsor">
+    <h2>Didukung Penuh Oleh</h2>
+    <div class="garisku"></div>
+
+    <div class="sponsor-track">
+        <div class="sponsor-logos">
+            <img src="./asset/1.png" alt="Yayasan Marsudirini">
+            <img src="./asset/2.png" alt="Lensa Jagad.id">
+            <img src="./asset/3.png" alt="Tahoe Tempe Production">
+            <img src="./asset/5.png" alt="Persekutuan Organis Asrama Marsudirini">
+
+            <img src="./asset/1.png" alt="Yayasan Marsudirini">
+            <img src="./asset/2.png" alt="Lensa Jagad.id">
+            <img src="./asset/3.png" alt="Tahoe Tempe Production">
+            <img src="./asset/5.png" alt="Persekutuan Organis Asrama Marsudirini">
+        </div>
+      </div>
+  </div>
+
+  <footer>
+    <div class="footerkiri">
+      <div class="footer-kiri-logo">
+        <img src="./asset/Wastra Logo.png" alt="" class="logo-footer">
+        <div class="keterangan-logo">
+          <h1>Wastra Nusantara</h1>
+          <p>Warisan Tradisi Anak Bangsa</p>
+        </div>
+      </div>
+      
+      <div class="footerkiri-menu">
+        <div class="footerkiri-menu1">
+          <h2>Tautan Cepat</h2>
+          <div class="gariskuy"></div>
+          <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="#about-us">Tentang Kami</a></li>
+            <li><a href="#product">Semua Produk</a></li>
+            <li><a href="index.php#gallery">Galeri</a></li>
+            <li><a href="mailto:michaelsatrian@gmail.com">Bantuan</a></li>
+          </ul>
+        </div>
+        <div class="footerkiri-menu2">
+          <h2>Mitra</h2>
+          <div class="gariskuy"></div>
+          <ul>
+            <li><a href="https://api.whatsapp.com/send?phone=6282111557981&text=Halo%2C%20saya%20mau%20bergabung%20menjadi%20mitra%20WASTRA%20NUSANTARA!">Jadi Mitra Penjualan</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footerkanan">
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1655.8564521806193!2d106.70268739354648!3d-6.482737044774017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c60359a515b5%3A0xea2556697fe39eac!2sSMA%20Marsudirini%20Bogor!5e0!3m2!1sid!2sid!4v1765519638667!5m2!1sid!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <p>Jl. Perumahan Telaga Kahuripan No.Km. 47, RW.5, Tegal, Kec. Kemang, Kabupaten Bogor, Jawa Barat 16310</p>
+    </div>
+
+  </footer>
+
+  
+</body>
+<div id="loading-screen">
+  <div class="loader-content">
+    <div class="logo">WASTRA NUSANTARA</div>
+    <div class="tagline">Warisan Tradisi Anak Bangsa</div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loading-screen");
+    loader.classList.add("hidden");
+  });
+</script>
+</html>

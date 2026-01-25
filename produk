@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./asset/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js"></script>
+    <script>
+    window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+    });
+    </script>
+</head>
+<body class="produk">
+    <nav>
+        <img src="./asset/Wastra Logo.png" alt="" class="logo">
+
+        <ul class="nav-links" id="navLinks">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="about-us">Tentang Kami</a></li>
+        <li><a href="produk">Produk</a></li>
+        <li><a href="index#gallery">Galeri</a></li>
+        <li class="mobile-login"><a id="mobileLoginText" href="./loginsignup">Login</a></li>
+        
+        
+        </ul>
+
+        
+        </a>
+        <a href="./loginsignup" class="login-desktop">
+        
+        <div class="login-btn">
+          <h5 id="loginText">Login</h5>
+
+          <img src="./asset/default-avatar-icon-of-social-media-user-vector.jpg" 
+            alt="User" 
+            id="userAvatar" 
+            class="logo" 
+            style="cursor:pointer; width:40px; height:40px; border-radius:50%; display:none;">
+        </div>
+
+
+        </a>
+
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+    </nav>  
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+
+        hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        hamburger.classList.toggle("active");
+        });
+    </script>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          const loginText = document.getElementById("loginText");
+          const userAvatar = document.getElementById("userAvatar");
+          const mobileLoginText = document.getElementById("mobileLoginText");
+
+          const isLogin = localStorage.getItem("wastra_login");
+
+          if (isLogin === "true") {
+              // Desktop: tampilkan avatar
+              loginText.style.display = "none";
+              userAvatar.style.display = "block";
+
+              // Mobile: jadi Logout
+              mobileLoginText.textContent = "Logout";
+              mobileLoginText.href = "#";
+          } else {
+              // Desktop: tampilkan Login
+              loginText.style.display = "block";
+              userAvatar.style.display = "none";
+
+              // Mobile: tetap Login
+              mobileLoginText.textContent = "Login";
+              mobileLoginText.href = "./loginsignup";
+          }
+
+          // Klik avatar (desktop) = logout
+          userAvatar.addEventListener("click", function (e) {
+              e.preventDefault();
+              handleLogout();
+          });
+
+          // Klik Logout (mobile) = logout
+          mobileLoginText.addEventListener("click", function (e) {
+              if (isLogin === "true") {
+                  e.preventDefault();
+                  handleLogout();
+              }
+          });
+
+          function handleLogout() {
+              const confirmLogout = confirm("Yakin mau logout?");
+              if (confirmLogout) {
+                  localStorage.removeItem("wastra_login");
+                  localStorage.removeItem("wastra_cart"); 
+                  alert("Berhasil logout. Sampai jumpa lagi 👋");
+                  window.location.href = "index.php";
+              }
+          }
+
+          const orderBtn = document.getElementById("orderBtn");
+
+          if (isLogin === "true") {
+              loginText.style.display = "none";
+              userAvatar.style.display = "block";
+              orderBtn.style.display = "inline-block";
+
+              mobileLoginText.textContent = "Logout";
+              mobileLoginText.href = "#";
+          } else {
+              loginText.style.display = "block";
+              userAvatar.style.display = "none";
+              orderBtn.style.display = "none";
+
+              mobileLoginText.textContent = "Login";
+              mobileLoginText.href = "./loginsignup";
+          }
+
+      });
+    </script>
+
+
+
+
+
+
+    <div id="product" style="padding-top: 120px;">
+        <h2>Produk UMKM Kami!</h2>
+        <div class="garisku"></div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Cari produk..." onkeyup="searchProduct()">
+            <i class="fa fa-search"></i>
+        </div>
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterProduct('SEMUA', this)">Semua</button>
+            <button class="filter-btn" onclick="filterProduct('KAIN BATIK TULIS', this)">Kain Batik Tulis</button>
+            <button class="filter-btn" onclick="filterProduct('BATIK JADI', this)">Batik Jadi</button>
+            <button class="filter-btn" onclick="filterProduct('KAIN TENUN DAN SONGKET', this)">Kain Tenun & Songket</button>
+            <button class="filter-btn" onclick="filterProduct('HIASAN', this)">Hiasan</button>
+            <button class="filter-btn" onclick="filterProduct('LAINNYA', this)">Lainnya</button>
+        </div>
+        
+        <div class="product-container" id="productContainer">
+            <!-- Produk akan dimuat di sini melalui JavaScript -->
+        </div>
+    </div>
+    <button href="#" class="float"> 
+
+    <button class="float" onclick="toggleCart()">
+      <img src="./asset/shopping_cart.png" style="width:30px; height:30px; margin-top:15px;" alt="">
+        <i class="fa fa-shopping-cart"></i> <span id="cartCount">0</span>
+    </button>
+          
+
+
+  <footer>
+    <div class="footerkiri">
+      <div class="footer-kiri-logo">
+        <img src="./asset/Wastra Logo.png" alt="" class="logo-footer">
+        <div class="keterangan-logo">
+          <h1>Wastra Nusantara</h1>
+          <p>Warisan Tradisi Anak Bangsa</p>
+        </div>
+      </div>
+      
+      <div class="footerkiri-menu">
+        <div class="footerkiri-menu1">
+          <h2>Tautan Cepat</h2>
+          <div class="gariskuy"></div>
+          <ul>
+            <li><a href="index">Home</a></li>
+            <li><a href="about-us">Tentang Kami</a></li>
+            <li><a href="produk">Semua Produk</a></li>
+            <li><a href="index#gallery">Galeri</a></li>
+            <li><a href="mailto:michaelsatrian@gmail.com">Bantuan</a></li>
+          </ul>
+        </div>
+        <div class="footerkiri-menu2">
+          <h2>Mitra</h2>
+          <div class="gariskuy"></div>
+          <ul>
+            <li><a href="https://api.whatsapp.com/send?phone=6282111557981&text=Halo%2C%20saya%20mau%20bergabung%20menjadi%20mitra%20WASTRA%20NUSANTARA!">Jadi Mitra Penjualan</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footerkanan">
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1655.8564521806193!2d106.70268739354648!3d-6.482737044774017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c60359a515b5%3A0xea2556697fe39eac!2sSMA%20Marsudirini%20Bogor!5e0!3m2!1sid!2sid!4v1765519638667!5m2!1sid!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <p>Jl. Perumahan Telaga Kahuripan No.Km. 47, RW.5, Tegal, Kec. Kemang, Kabupaten Bogor, Jawa Barat 16310</p>
+    </div>
+
+  </footer>
+  <div id="cartModal" class="cart-modal">
+    <div class="cart-content">
+        <span class="close-cart" onclick="toggleCart()">&times;</span>
+        <h2>Keranjang Belanja</h2>
+        <div id="cartItems">
+            </div>
+        <div class="cart-total">
+            <h3>Total: <span id="cartTotalPrice">Rp 0</span></h3>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+</div>
+<div id="orderOverlay" class="cart-modal" style="display:none;">
+  <div class="cart-content">
+    <span class="close-cart" onclick="toggleOrders()">&times;</span>
+    <h2>Pesanan Saya</h2>
+    <div id="orderItems"></div>
+  </div>
+</div>
+
+</body>
+<div id="loading-screen">
+  <div class="loader-content">
+    <div class="logo">WASTRA NUSANTARA</div>
+    <div class="tagline">Warisan Tradisi Anak Bangsa</div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loading-screen");
+    loader.classList.add("hidden");
+  });
+
+  function isUserLoggedIn(){
+    return localStorage.getItem("wastra_login") === "true";
+}
+</script>
+
+<script>
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTO8E7MpBtGpohVMcjLgQWoMh4RsnrELZp3eUqn990jXPuKMOeMVngDbFVE1Px9mtTBOGWDOaqmUos4/pub?gid=502053556&single=true&output=tsv";
+
+fetch(sheetURL)
+  .then(res => res.text())
+  .then(data => {
+    const rows = data.split("\n").slice(1); // skip header
+    const container = document.getElementById("productContainer");
+
+    rows.forEach(row => {
+      if(row.trim() === "") return;
+
+      const cols = row.split("\t");
+
+      const nama = cols[1];
+      const harga = cols[2];
+      const deskripsi = cols[3];
+      const fotoLink = cols[4];
+      const kategori = cols[5];
+
+      const imgURL = convertDriveLink(fotoLink);
+
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.innerHTML = `
+        <img src="${imgURL}" alt="${nama}">
+        <h3>${nama}</h3>
+        <p>${deskripsi}</p>
+        <h3>Rp ${Number(harga).toLocaleString("id-ID")}</h3>
+        <p>Kategori: ${kategori}</p>
+        <div class="login-bli" onclick="addToCart('${nama}', ${harga})">
+            <h5>Tambah Ke Keranjang</h5>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  })
+  .catch(err => console.error("Gagal ambil data:", err));
+
+function convertDriveLink(url) {
+  if (!url) return "";
+  
+  let fileId = "";
+  
+  // Format 1: /file/d/{FILE_ID}/preview (format lu)
+  if (url.includes('/file/d/')) {
+    const match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+    if (match) {
+      fileId = match[1];
+    }
+  }
+  // Format 2: /d/{FILE_ID}/ (format lama)
+  else if (url.includes('/d/')) {
+    const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    if (match) {
+      fileId = match[1];
+    }
+  }
+  // Format 3: ?id={FILE_ID}
+  else if (url.includes('id=')) {
+    const match = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+    if (match) {
+      fileId = match[1];
+    }
+  }
+  
+  if (fileId) {
+    return `https://drive.google.com/thumbnail?id=${fileId}&sz=w500`;
+  }
+  
+  return url;
+}
+
+
+function searchProduct() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const cards = document.getElementsByClassName("product-card");
+
+  for (let i = 0; i < cards.length; i++) {
+    const productName = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+    const productDesc = cards[i].getElementsByTagName("p")[0].innerText.toLowerCase();
+    const productCategory = cards[i].getElementsByTagName("p")[1].innerText.toLowerCase();
+
+    if (productName.includes(input) || productDesc.includes(input) || productCategory.includes(input)) {
+      cards[i].style.display = ""; 
+    } else {
+      cards[i].style.display = "none"; 
+    }
+  }
+}
+
+function filterProduct(kategori, btn) {
+    // Ubah status tombol aktif
+    const buttons = document.getElementsByClassName("filter-btn");
+    for (let b of buttons) {
+        b.classList.remove("active");
+    }
+    btn.classList.add("active");
+
+    // Filter produk
+    const cards = document.getElementsByClassName("product-card");
+    const searchInput = document.getElementById("searchInput").value.toLowerCase();
+
+    for (let i = 0; i < cards.length; i++) {
+        // Ambil teks kategori dari p[1] (sesuai struktur innerHTML yang kamu buat)
+        const productCategory = cards[i].getElementsByTagName("p")[1].innerText.toUpperCase();
+        const productName = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+
+        const matchKategori = (kategori === 'SEMUA' || productCategory.includes(kategori));
+        const matchSearch = productName.includes(searchInput);
+
+        if (matchKategori && matchSearch) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+
+let cart = JSON.parse(localStorage.getItem("wastra_cart")) || [];
+
+// 1. Fungsi Tambah ke Keranjang
+function addToCart(nama, harga) {
+    if(!isUserLoggedIn()){
+        alert("Silakan login terlebih dahulu untuk menambahkan ke keranjang.");
+        window.location.href = "loginsignup";
+        return;
+    }
+
+    const item = { nama, harga };
+    cart.push(item);
+    updateCart();
+    alert(nama + " ditambahkan ke keranjang!");
+}
+
+
+// 2. Fungsi Update Tampilan & Hitung Total
+function updateCart() {
+    localStorage.setItem("wastra_cart", JSON.stringify(cart));
+    document.getElementById("cartCount").innerText = cart.length;
+    
+    const container = document.getElementById("cartItems");
+    const totalDisplay = document.getElementById("cartTotalPrice");
+    container.innerHTML = "";
+    
+    let total = 0;
+    cart.forEach((item, index) => {
+        total += item.harga;
+        container.innerHTML += `
+            <div class="cart-item">
+                <div>
+                    <h4>${item.nama}</h4>
+                    <p>Rp ${item.harga.toLocaleString("id-ID")}</p>
+                </div>
+                <button onclick="removeFromCart(${index})" style="background:none; border:none; color:red; cursor:pointer;">Hapus</button>
+            </div>
+        `;
+    });
+    
+    totalDisplay.innerText = "Rp " + total.toLocaleString("id-ID");
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+function toggleCart() {
+    const modal = document.getElementById("cartModal");
+    modal.style.display = modal.style.display === "block" ? "none" : "block";
+    updateCart();
+}
+
+function toggleOrders(){
+    const modal = document.getElementById("orderOverlay");
+    modal.style.display = modal.style.display === "block" ? "none" : "block";
+    loadOrders();
+}
+
+// Ambil data pesanan user
+function loadOrders(){
+    const orderContainer = document.getElementById("orderItems");
+    orderContainer.innerHTML = "";
+
+    // Contoh sementara: ambil dari localStorage (nanti bisa ganti ke PHP + database)
+    const orders = JSON.parse(localStorage.getItem("wastra_orders")) || [];
+
+    if(orders.length === 0){
+        orderContainer.innerHTML = "<p>Belum ada pesanan.</p>";
+        return;
+    }
+
+    orders.forEach((order, index) => {
+        orderContainer.innerHTML += `
+            <div class="cart-item">
+                <div>
+                    <h4>Pesanan #${index+1}</h4>
+                    <p>Total: Rp ${order.total.toLocaleString("id-ID")}</p>
+                    <p>Status: ${order.status}</p>
+                    <p>Alamat: ${order.alamat}</p>
+                </div>
+            </div>
+        `;
+    });
+}
+
+document.getElementById("orderBtn").addEventListener("click", function(e){
+    e.preventDefault();
+    toggleOrders();
+});
+
+
+// 3. Fungsi Pesan via WhatsApp
+function checkout() {
+    if (cart.length === 0) return alert("Keranjang kosong!");
+
+    // Simpan data checkout
+    localStorage.setItem("wastra_checkout", JSON.stringify(cart));
+
+    // Pindah ke halaman pembayaran
+    window.location.href = "pembayaran.php";
+}
+
+
+
+// Jalankan update saat halaman pertama kali dibuka
+updateCart();
+</script>
+
+
+</html>
